@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Clock extends React.Component
+  className Clock extends React.Component
 {
     state={ time : ''};
 
@@ -13,7 +13,7 @@ class Clock extends React.Component
     render()
     {
         return (
-            <div className="time" >
+            <div     className="time" >
                 TIME: {this.state.time}
                 </div>
         )

@@ -5,7 +5,7 @@ import Spinner from './Spinner';
 import Clock from './Clock';
 
 
-class App extends React.Component {
+  className App extends React.Component {
     /*
     //Either this...
     constructor(props)

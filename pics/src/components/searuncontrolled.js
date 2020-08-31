@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchBar extends React.Component
+  class SearchBar extends React.Component
 {
     onInputChange(event)
     {
@@ -11,9 +11,9 @@ class SearchBar extends React.Component
     render()
     {
         return (
-            <div className="ui segment">
-                <form className="ui form">
-                    <div className="field">
+            <div     className="ui segment">
+                <form     className="ui form">
+                    <div     className="field">
                         <label htmlFor="text">Image Search</label>
                     <input type="text" id="text" onChange={this.onInputChange} />
                     </div>

@@ -4,7 +4,7 @@ import Unsplash from '../api/Unsplash';
 import ImageList from './ImageList';
 
 
-class App extends React.Component {
+  className App extends React.Component {
     /*
     onSearchSubmit(term) {
         axios.get('https://api.unsplash.com/search/photos', {
@@ -45,7 +45,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="ui container" style={{ marginTop: '10px' }}>
+            <div     className="ui container" style={{ marginTop: '10px' }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
                 <ImageList images={this.state.images} />
             </div>

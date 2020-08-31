@@ -2,22 +2,22 @@ import React, { Component } from 'react'; //as an eg both named and default is s
 import { connect } from 'react-redux'; //only SongList needs to create connect function
 import { selectSong } from '../actions'; //Named Export so curly braces //no need to put '../actions/index'
 
-class SongList extends Component //if {Component} was not imported i have to put React.Component
+  class SongList extends Component //if {Component} was not imported i have to put React.Component
 {
     renderList() //helper function
     {
         return this.props.songs.map((aSong) => { //map produce array
             return ( //this one return some jsx to mapping func
-                <div className="item" key={aSong.title}>
-                    <div className="right floated content">
+                <div     className="item" key={aSong.title}>
+                    <div     className="right floated content">
                         <button
-                            className="ui button primary"
+                                className="ui button primary"
                             onClick={()=>this.props.selectSong(aSong)}
                         >
                             Select
                             </button>
                     </div>
-                    <div className="content">
+                    <div     className="content">
                         {aSong.title}
                     </div>
                 </div>
@@ -27,7 +27,7 @@ class SongList extends Component //if {Component} was not imported i have to put
 
     render() {
         return (
-            <div className="ui divided list">
+            <div     className="ui divided list">
                 {this.renderList()}
             </div>
         );

@@ -10,7 +10,7 @@ const App =()=> {
     
     return (
         <div>
-            <label className="label" for="name">
+            <label     className="label" for="name">
                {labelText()} 
             </label>
             <input id="name" type="text" />

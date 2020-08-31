@@ -30,7 +30,7 @@ const ImageList=(props)=>
         );
     });
     return (
-        <div className="image-list">{images}</div>
+        <div     className="image-list">{images}</div>
     );
 };
 

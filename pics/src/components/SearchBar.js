@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchBar extends React.Component {
+  class SearchBar extends React.Component {
     state = { term: 'search here...' };
 
     /*USE ARROW FUNCTION  then use
@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
     }
     .. in render
 
-    <form onSubmit={this.onFormSubmit} className="ui form"> in render
+    <form onSubmit={this.onFormSubmit}     className="ui form"> in render
     
     */
     onFormSubmit(event) 
@@ -24,9 +24,9 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className="ui segment">
-                <form onSubmit={(event)=>this.onFormSubmit(event)} className="ui form">
-                    <div className="field">
+            <div     className="ui segment">
+                <form onSubmit={(event)=>this.onFormSubmit(event)}     className="ui form">
+                    <div     className="field">
                         <label htmlFor="text">Image Search</label>
                         <input type="text" id="text" value={this.state.term}
                         onClick={(e) => this.setState({ term: ''})} 

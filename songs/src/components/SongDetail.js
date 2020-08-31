@@ -9,9 +9,9 @@ const SongDetail = ({ songSelectedFromButton }) => {
                 <h3>
                     Details:
                     </h3>
-                <p>
+                 
                     Select a Song
-            </p>
+              
             </div>
         );
 
@@ -21,11 +21,11 @@ const SongDetail = ({ songSelectedFromButton }) => {
             <h3>
                 Details:
             </h3>
-            <p>
+             
                 Title: {songSelectedFromButton.title}
                 <br />
                 Duration: {songSelectedFromButton.duration}
-            </p>
+              
         </div>
     );
 };

@@ -14,7 +14,7 @@ function getDate() {
 
 const App = () => {
     return (
-        <div className='ui container comments'>
+        <div     className='ui container comments'>
            
             <ApprovalCard>
                 <CommentDetail author="Sam" time={getTime()} date={getDate()} img={faker.image.avatar()} />
