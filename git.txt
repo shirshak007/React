@@ -1,0 +1,207 @@
+
+Shirshak@ShirshakPC MINGW64 ~
+$ cd /e
+
+Shirshak@ShirshakPC MINGW64 /e
+$ ls
+'$RECYCLE.BIN'/  'System Volume Information'/   WORK/
+
+Shirshak@ShirshakPC MINGW64 /e
+$ cd WORK/
+
+Shirshak@ShirshakPC MINGW64 /e/WORK
+$ cd React/
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React (master)
+$ cd router-demo/
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/Router.js
+        modified:   src/components/Car.js
+        modified:   src/components/Home.js
+        modified:   src/constant/CarData.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        debug.log
+        src/images/ashokleyland.jpg
+        src/images/hondacity.jpg
+        src/images/hondacivicred.jpg
+        src/images/hondacivicwhite.jpg
+        src/images/hondacvr.jpg
+        src/images/hyundaikona.jpg
+        src/images/hyundaitucson.jpg
+        src/images/tata.jpg
+        src/images/tatanexon.jpg
+        src/images/tatatigor.jpg
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ git add .
+warning: LF will be replaced by CRLF in debug.log.
+The file will have its original line endings in your working directory
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ git commit -m ":tada: car update"
+[master e041a52] :tada: car update
+ 15 files changed, 117 insertions(+), 55 deletions(-)
+ create mode 100644 debug.log
+ rewrite src/constant/CarData.js (95%)
+ create mode 100644 src/images/ashokleyland.jpg
+ create mode 100644 src/images/hondacity.jpg
+ create mode 100644 src/images/hondacivicred.jpg
+ create mode 100644 src/images/hondacivicwhite.jpg
+ create mode 100644 src/images/hondacvr.jpg
+ create mode 100644 src/images/hyundaikona.jpg
+ create mode 100644 src/images/hyundaitucson.jpg
+ create mode 100644 src/images/tata.jpg
+ create mode 100644 src/images/tatanexon.jpg
+ create mode 100644 src/images/tatatigor.jpg
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ git push
+Enumerating objects: 39, done.
+Counting objects: 100% (39/39), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (28/28), done.
+Writing objects: 100% (30/30), 1.46 MiB | 1.05 MiB/s, done.
+Total 30 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 5 local objects.
+To github.com:shirshak007/router-demo.git
+   96aaeab..e041a52  master -> master
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ git push heroku master
+Enumerating objects: 39, done.
+Counting objects: 100% (39/39), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (28/28), done.
+Writing objects: 100% (30/30), 1.46 MiB | 793.00 KiB/s, done.
+Total 30 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Node.js app detected
+remote:
+remote: -----> Creating runtime environment
+remote:
+remote:        NPM_CONFIG_LOGLEVEL=error
+remote:        NODE_ENV=production
+remote:        NODE_MODULES_CACHE=true
+remote:        NODE_VERBOSE=false
+remote:
+remote: -----> Installing binaries
+remote:        engines.node (package.json):  unspecified
+remote:        engines.npm (package.json):   unspecified (use default)
+remote:
+remote:        Resolving node version 12.x...
+remote:        Downloading and installing node 12.18.3...
+remote:        Using default npm version: 6.14.6
+remote:
+remote: -----> Restoring cache
+remote:        - node_modules
+remote:
+remote: -----> Installing dependencies
+remote:        Installing node modules
+remote:
+remote:        > core-js@2.6.11 postinstall /tmp/build_eb807300/node_modules/babel-runtime/node_modules/core-js
+remote:        > node -e "try{require('./postinstall')}catch(e){}"
+remote:
+remote:
+remote:        > fsevents@1.2.13 install /tmp/build_eb807300/node_modules/webpack-dev-server/node_modules/fsevents
+remote:        > node install.js
+remote:
+remote:
+remote:        Skipping 'fsevents' build as platform linux is not supported
+remote:
+remote:        > fsevents@1.2.13 install /tmp/build_eb807300/node_modules/watchpack-chokidar2/node_modules/fsevents
+remote:        > node install.js
+remote:
+remote:
+remote:        Skipping 'fsevents' build as platform linux is not supported
+remote:
+remote:        > core-js@3.6.5 postinstall /tmp/build_eb807300/node_modules/core-js
+remote:        > node -e "try{require('./postinstall')}catch(e){}"
+remote:
+remote:
+remote:        > fsevents@1.2.13 install /tmp/build_eb807300/node_modules/jest-haste-map/node_modules/fsevents
+remote:        > node install.js
+remote:
+remote:
+remote:        Skipping 'fsevents' build as platform linux is not supported
+remote:
+remote:        > core-js-pure@3.6.5 postinstall /tmp/build_eb807300/node_modules/core-js-pure
+remote:        > node -e "try{require('./postinstall')}catch(e){}"
+remote:
+remote:        added 1638 packages in 29.676s
+remote:
+remote: -----> Build
+remote:        Running build
+remote:
+remote:        > router-demo@0.1.0 build /tmp/build_eb807300
+remote:        > react-scripts build
+remote:
+remote:        Creating an optimized production build...
+remote:        Compiled successfully.
+remote:
+remote:        File sizes after gzip:
+remote:
+remote:          48.18 KB  build/static/js/2.b0b89aa6.chunk.js
+remote:          1.98 KB   build/static/js/main.489b81af.chunk.js
+remote:          777 B     build/static/js/runtime-main.d8848d60.js
+remote:
+remote:        The project was built assuming it is hosted at /.
+remote:        You can control this with the homepage field in your package.json.
+remote:
+remote:        The build folder is ready to be deployed.
+remote:        You may serve it with a static server:
+remote:
+remote:          npm install -g serve
+remote:          serve -s build
+remote:
+remote:        Find out more about deployment here:
+remote:
+remote:          bit.ly/CRA-deploy
+remote:
+remote:
+remote: -----> Caching build
+remote:        - node_modules
+remote:
+remote: -----> Pruning devDependencies
+remote:        audited 1638 packages in 12.445s
+remote:
+remote:        67 packages are looking for funding
+remote:          run `npm fund` for details
+remote:
+remote:        found 0 vulnerabilities
+remote:
+remote:
+remote: -----> Build succeeded!
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 62.6M
+remote: -----> Launching...
+remote:        Released v5
+remote:        https://d-car.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/d-car.git
+   96aaeab..e041a52  master -> master
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$ heroku open
+
+Shirshak@ShirshakPC MINGW64 /e/WORK/React/router-demo (master)
+$
