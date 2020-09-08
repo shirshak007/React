@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay';
-import Spinner from './Spinner';
-import Clock from './Clock';
+import React from "react";
+import ReactDOM from "react-dom";
+import SeasonDisplay from "./SeasonDisplay";
+import Spinner from "./Spinner";
+import Clock from "./Clock";
 
-
-  className App extends React.Component {
-    /*
+class App extends React.Component {
+  /*
     //Either this...
     constructor(props)
     {
@@ -18,52 +17,45 @@ import Clock from './Clock';
     }
    // or, this...
     */
-    state = { lat: null, long: null, errorMessage: '' };
-    componentDidMount() {
-        window.navigator.geolocation.getCurrentPosition(
-            (position) => this.setState({ lat: position.coords.latitude, long: position.coords.longitude }),
-            (err) => this.setState({ errorMessage: err.message }),
-        );
-    }
+  state = { lat: null, long: null, errorMessage: "" };
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) =>
+        this.setState({
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        }),
+      (err) => this.setState({ errorMessage: err.message })
+    );
+  }
 
-renderContent()
-{
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat && !this.state.long) {
-        return (
-            <div>
-                Error: {this.state.errorMessage}
-            </div>
-        );
+      return <div>Error: {this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat && this.state.long) {
-        return (
-            <SeasonDisplay lat={this.state.lat} long={this.state.long}/>
-            /*
+      return (
+        <SeasonDisplay lat={this.state.lat} long={this.state.long} />
+        /*
             <div>
                 Latitude: {this.state.lat}
                 <br />
                 longitude: {this.state.long}
             </div>
             */
-        );
+      );
     }
+    return <Spinner message="Please allow Location..." />;
+  }
+
+  render() {
     return (
-        
-        <Spinner message='Please allow Location...'/>
+      <div>
+        <Clock />
+        {this.renderContent()}
+      </div>
     );
+  }
 }
 
-render() {
-        return (
-            <div>
-                <Clock />
-                {this.renderContent()}
-            </div>
-        );
-    }
-
-
-
-}
-
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector("#root"));

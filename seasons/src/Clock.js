@@ -1,24 +1,17 @@
-import React from 'react';
+import React from "react";
 
-  className Clock extends React.Component
-{
-    state={ time : ''};
+class Clock extends React.Component {
+  state = { time: "" };
 
-    componentDidMount(){
-        setInterval(()=>{this.setState({time: new Date().toGMTString()})},1000);
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ time: new Date().toGMTString() });
+    }, 1000);
+  }
 
-    }
-
-
-    render()
-    {
-        return (
-            <div     className="time" >
-                TIME: {this.state.time}
-                </div>
-        )
-    }
-  
+  render() {
+    return <div className="time">TIME: {this.state.time}</div>;
+  }
 }
 
 export default Clock;

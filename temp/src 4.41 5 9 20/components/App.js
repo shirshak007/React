@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import HeaderTab from "./HeaderTab";
+
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
-
-        <Footer />
+      <div style={{ flexGrow: 1 }}>
+        <HeaderTab />
       </div>
     );
   }
