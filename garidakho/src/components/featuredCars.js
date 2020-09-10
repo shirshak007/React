@@ -45,15 +45,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   gridpaper: {
+    /*Change the height and width here to reflect changes */
     height: 240,
-    width: 270,
+    width: 265,
   },
   control: {
     padding: theme.spacing(2),
   },
   imagebox: {
     width: "100%",
-    height: 200,
+    height: 200 /*change the height always 30-40 pixex less than gridpaper. It contains the title of image*/,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -142,6 +143,8 @@ export default function SearchBrandBy(props) {
                     <Paper className={classes.gridpaper}>
                       <div className={classes.imagebox}>
                         <NavLink className={classes.link} to="/">
+                          {" "}
+                          {/*Change the to="/" according to need*/}
                           <img
                             className={classes.image}
                             src={tile.img}

@@ -8,6 +8,7 @@ import Autocomplete, {
   createFilterOptions,
 } from "@material-ui/lab/Autocomplete";
 import Theme from "./Theme";
+import image from "../asset/images/background.jpg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

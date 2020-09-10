@@ -35,14 +35,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  container: {
-    padding: theme.spacing(0, 1),
-  },
+
   footer: {
     backgroundColor: Theme.palette.background.darkBlue,
     padding: theme.spacing(1, 0),
-
-    left: 0,
     width: "100%",
     color: "white",
   },
@@ -50,11 +46,17 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     fontFamily: "lato",
     fontSize: 25,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 14,
+    },
   },
   typography: {
     color: "white",
     fontFamily: "lato",
     fontSize: 15,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 10,
+    },
   },
   link: {
     color: "white",
@@ -71,8 +73,8 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Container className={classes.container}>
-        <Grid container spacing={3}>
+      <Container>
+        <Grid container spacing={1}>
           <Grid item xs={3}>
             <ListItem>
               <Typography className={classes.typographyhead}>

@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import SearchCar from "./SearchCar";
 import SearchNewCarBy from "./SearchNewCarBy";
-import FeaturedCars from "./featuredCars";
+import FeaturedCars from "./FeaturedCars";
 import Slideshow from "./Slideshow";
 
 const useStyles = makeStyles((theme) => ({

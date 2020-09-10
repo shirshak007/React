@@ -1,6 +1,6 @@
 import image1 from "../asset/icons/icons8-alfa-romeo-48.png";
 import image2 from "../asset/icons/icons8-audi-50.png";
-import image3 from "../asset/icons/icons8-bmw-480.png";
+import image3 from "../asset/icons/icons8-bmw-48.png";
 import image4 from "../asset/icons/icons8-dodge-48.png";
 import image5 from "../asset/icons/icons8-ferrari-48.png";
 import image6 from "../asset/icons/icons8-fiat-48.png";

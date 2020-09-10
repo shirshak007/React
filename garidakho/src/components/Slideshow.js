@@ -1,58 +1,79 @@
 import React from "react";
-import { makeStyles, Container, Typography } from "@material-ui/core";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import { makeStyles, Typography, Paper } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+
+import Theme from "./Theme";
+import slideData from "../asset/slideData";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(2),
+  root: {
+    marginBottom: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  container: {
-    marginBottom: theme.spacing(2),
-    height: "300px",
-    background: "#0f0f0f",
-    // backgroundImage: `url(${"../asset/background.jpg"})`,
+  paper: {
+    marginBottom: theme.spacing(1),
+    display: "flex",
+    flexDirection: "column",
   },
   typography: {
-    margin: theme.spacing(1),
-    color: "white",
+    marginTop: theme.spacing(1),
+    color: Theme.palette.background.darkBlue,
   },
-  search: {
-    padding: theme.spacing(5),
+  navlink: {
+    color: "black",
+    textDecoration: "inherit",
+    padding: theme.spacing(0, 1),
   },
-  text: {
-    margin: theme.spacing(1),
-    color: "white",
+  slidetext: {
+    padding: theme.spacing(0, 1),
+  },
+  slide: {
+    width: "75%" /*Change dimension here to resize slide image*/,
+  },
+
+  imagebox: {
+    width: "100%",
+  },
+  image: {
+    width: "100%",
   },
 }));
 
-export default function NewCar() {
+export default function Slideshow(props) {
   const classes = useStyles();
 
-  carousel();
   return (
-    <Container className={classes.container} maxWidth="lg">
-      <h2>Automatic Slideshow</h2>
-      <div>
-        <img id="images" src="gaadi_front.png" />
-        <img id="images" src="Screenshot (1).png" />
-        <img id="images" src="Screenshot (3).png" />
+    <div className={classes.root}>
+      <div className={classes.paper}>
+        <Typography className={classes.typography} variant="h5">
+          LATEST ARRIVAL
+        </Typography>
       </div>
-    </Container>
+      <Slide duration={1500} className={classes.slide}>
+        {slideData.map((slide) => (
+          <NavLink key={slide.title} className={classes.navlink} to="/">
+            <Paper className={classes.paper}>
+              <div className={classes.imagebox}>
+                <img
+                  className={classes.image}
+                  src={slide.img}
+                  alt={slide.title}
+                />
+              </div>
+              <div className={classes.slidetext}>
+                <Typography variant="h5">{slide.title}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {slide.desc}
+                </Typography>
+              </div>
+            </Paper>
+          </NavLink>
+        ))}
+      </Slide>
+    </div>
   );
-}
-function carousel() {
-  var myIndex = 0;
-  var i;
-  var x = document.getElementsById("images");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  myIndex++;
-  if (myIndex > x.length) {
-    myIndex = 1;
-  }
-  x[myIndex - 1].style.display = "block";
-  setTimeout(carousel, 2000); // Change image every 2 seconds
 }

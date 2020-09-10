@@ -45,7 +45,10 @@ const useStyles = makeStyles((theme) => ({
   imagebox: {
     width: 50,
     height: 50,
-    flexDirection: "row",
+    [theme.breakpoints.down("xs")]: {
+      width: 25,
+      height: 25,
+    },
   },
   image: {
     width: "100%",
@@ -125,30 +128,27 @@ export default function SearchNewCar(props) {
         borderRadius={16}
         style={{
           borderColor: "#004346",
-
-          width: "50%",
+          width: "55%",
         }}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Grid container className={classes.grid} spacing={2}>
-            <Grid item xs={12}>
-              <Grid container justify="center" spacing={2}>
-                {iconDataBrand.map((tile) => (
-                  <Grid key={tile.img} item>
-                    <Paper className={classes.gridpaper}>
-                      <div className={classes.imagebox}>
-                        <NavLink className={classes.link} to="/">
-                          <img
-                            className={classes.image}
-                            src={tile.img}
-                            alt={tile.title}
-                          />
-                        </NavLink>
-                      </div>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
+          <Grid item xs={12}>
+            <Grid container justify="center" spacing={2}>
+              {iconDataBrand.map((tile) => (
+                <Grid key={tile.img} item>
+                  <Paper className={classes.gridpaper}>
+                    <div className={classes.imagebox}>
+                      <NavLink className={classes.link} to="/">
+                        <img
+                          className={classes.image}
+                          src={tile.img}
+                          alt={tile.title}
+                        />
+                      </NavLink>
+                    </div>
+                  </Paper>
+                </Grid>
+              ))}
             </Grid>
           </Grid>
         </TabPanel>

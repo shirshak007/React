@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Divider,
-  IconButton,
-  Paper,
-  InputBase,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, Toolbar, InputBase, Typography } from "@material-ui/core";
 
 import { fade, makeStyles } from "@material-ui/core/styles";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
@@ -43,17 +35,25 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 20,
     },
   },
-  text: {
-    flexGrow: 1,
-    color: "white",
-    fontSize: "1em",
-    fontFamily: "lato",
-    padding: theme.spacing(0, 1),
-  },
   space: {
+    //To deal with the row break while shrinking
     color: Theme.palette.background.darkBlue,
   },
-
+  text: {
+    color: "white",
+    fontSize: 14,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 9,
+    },
+  },
+  textspace: {
+    //To deal with the row break while shrinking
+    fontSize: 7,
+    color: Theme.palette.background.darkBlue,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 3,
+    },
+  },
   input: {
     marginLeft: theme.spacing(2),
     flex: 1,
@@ -73,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
 
     display: "none",
     [theme.breakpoints.up("sm")]: {
+      //hide when shrink
       display: "block",
     },
   },
@@ -98,11 +99,6 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-  divider: {
-    height: 20,
-    margin: 4,
-  },
-
   container: {
     height: "100%",
     position: "absolute",
@@ -112,9 +108,14 @@ const useStyles = makeStyles((theme) => ({
 
   navlink: {
     color: "white",
+    display: "flex",
+    flexDirection: "row",
     textDecoration: "inherit",
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(0, 1.5),
     fontFamily: "lato",
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(0, 0.5),
+    },
   },
 }));
 
@@ -140,13 +141,17 @@ export default function HeaderTab() {
         </div>
 
         <NavLink className={classes.navlink} to="/newcar">
-          New Car
+          <Typography className={classes.text}>NEW</Typography>
+          <Typography className={classes.textspace}>_</Typography>
+          <Typography className={classes.text}>CAR</Typography>
         </NavLink>
         <NavLink className={classes.navlink} to="/usedcar">
-          Used Car
+          <Typography className={classes.text}>USED</Typography>
+          <Typography className={classes.textspace}>_</Typography>
+          <Typography className={classes.text}>CAR</Typography>
         </NavLink>
         <NavLink className={classes.navlink} to="/news">
-          News
+          <Typography className={classes.text}>NEWS</Typography>
         </NavLink>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
