@@ -27,15 +27,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function News() {
+export default function NewCar() {
   const classes = useStyles();
+
+  carousel();
   return (
     <Container className={classes.container} maxWidth="lg">
-      <div className={classes.paper}>
-        <Typography className={classes.typography} component="h1" variant="h5">
-          NEWS
-        </Typography>
+      <h2>Automatic Slideshow</h2>
+      <div>
+        <img id="images" src="gaadi_front.png" />
+        <img id="images" src="Screenshot (1).png" />
+        <img id="images" src="Screenshot (3).png" />
       </div>
     </Container>
   );
+}
+function carousel() {
+  var myIndex = 0;
+  var i;
+  var x = document.getElementsById("images");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {
+    myIndex = 1;
+  }
+  x[myIndex - 1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
 }

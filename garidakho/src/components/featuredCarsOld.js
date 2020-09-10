@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+
 import {
   makeStyles,
   useTheme,
@@ -8,9 +8,10 @@ import {
   Tabs,
   Container,
   Typography,
+  GridList,
+  GridListTile,
+  GridListTileBar,
   Box,
-  Grid,
-  Paper,
 } from "@material-ui/core";
 
 import Theme from "./Theme";
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     marginBottom: theme.spacing(2),
+
     width: "100%",
     padding: 20,
     display: "flex",
@@ -40,20 +42,14 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontFamily: "lato",
     fontSize: 18,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 9,
+    },
   },
-  grid: {
-    flexGrow: 1,
-  },
-  gridpaper: {
-    height: 240,
-    width: 270,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
+
   imagebox: {
     width: "100%",
-    height: 200,
+    height: "100%",
     flexDirection: "row",
     alignItems: "center",
   },
@@ -61,16 +57,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
   },
-  link: {
-    color: "black",
-    textDecoration: "inherit",
-  },
 }));
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   const classes = useStyles();
-
   return (
     <div
       role="tabpanel"
@@ -134,72 +125,55 @@ export default function SearchBrandBy(props) {
       </Tabs>
       <Container>
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Grid container className={classes.grid} spacing={2}>
-            <Grid item xs={12}>
-              <Grid container justify="center" spacing={2}>
-                {iconDataBrand.map((tile) => (
-                  <Grid key={tile.img} item>
-                    <Paper className={classes.gridpaper}>
-                      <div className={classes.imagebox}>
-                        <NavLink className={classes.link} to="/">
-                          <img
-                            className={classes.image}
-                            src={tile.img}
-                            alt={tile.title}
-                          />
-                          <Typography align="center">{tile.title}</Typography>
-                        </NavLink>
-                      </div>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
+          <GridList cols={3}>
+            {iconDataBudgetCar.map((tile) => (
+              <GridListTile key={tile.img} cols={1}>
+                <div className={classes.imagebox}>
+                  <img
+                    className={classes.image}
+                    src={tile.img}
+                    alt={tile.title}
+                  />
+                  <GridListTileBar
+                    className={classes.text}
+                    title={tile.title}
+                  />
+                </div>
+              </GridListTile>
+            ))}
+          </GridList>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <Grid item xs={12}>
-            <Grid container justify="center" spacing={2}>
-              {iconDataBudgetCar.map((tile) => (
-                <Grid key={tile.img} item>
-                  <Paper className={classes.gridpaper}>
-                    <div className={classes.imagebox}>
-                      <NavLink className={classes.link} to="/">
-                        <img
-                          className={classes.image}
-                          src={tile.img}
-                          alt={tile.title}
-                        />
-                        <Typography align="center">{tile.title}</Typography>
-                      </NavLink>
-                    </div>
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
+          <GridList cols={3}>
+            {iconDataBrand.map((tile) => (
+              <GridListTile key={tile.img} cols={1}>
+                <div className={classes.imagebox}>
+                  <img
+                    className={classes.image}
+                    src={tile.img}
+                    alt={tile.title}
+                  />
+                </div>
+                <GridListTileBar className={classes.text} title={tile.title} />
+              </GridListTile>
+            ))}
+          </GridList>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <Grid item xs={12}>
-            <Grid container justify="center" spacing={2}>
-              {iconDataBrand.map((tile) => (
-                <Grid key={tile.img} item>
-                  <Paper className={classes.gridpaper}>
-                    <div className={classes.imagebox}>
-                      <NavLink className={classes.link} to="/">
-                        <img
-                          className={classes.image}
-                          src={tile.img}
-                          alt={tile.title}
-                        />
-                        <Typography align="center">{tile.title}</Typography>
-                      </NavLink>
-                    </div>
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
+          <GridList cols={3}>
+            {iconDataBrand.map((tile) => (
+              <GridListTile key={tile.img} cols={1}>
+                <div className={classes.imagebox}>
+                  <img
+                    className={classes.image}
+                    src={tile.img}
+                    alt={tile.title}
+                  />
+                </div>
+                <GridListTileBar className={classes.text} title={tile.title} />
+              </GridListTile>
+            ))}
+          </GridList>
         </TabPanel>
       </Container>
     </Container>

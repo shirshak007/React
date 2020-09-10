@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import SearchCar from "./SearchCar";
 import SearchNewCarBy from "./SearchNewCarBy";
 import FeaturedCars from "./featuredCars";
+import Slideshow from "./Slideshow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ export default function Home(props) {
       <SearchCar />
       <SearchNewCarBy />
       <FeaturedCars />
+      <Slideshow />
     </div>
   );
 }

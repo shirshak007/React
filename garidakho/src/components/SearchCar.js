@@ -130,15 +130,14 @@ export default function SearchCar(props) {
           id="search"
           options={cars}
           getOptionLabel={(option) => {
-            // Value selected with enter, right from the input
             if (typeof option === "string") {
               return option;
             }
-            // Add "xxx" option created dynamically
+
             if (option.inputValue) {
               return option.inputValue;
             }
-            // Regular option
+
             return option.title;
           }}
           renderOption={(option) => option.title}

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { NavLink } from "react-router-dom";
 import {
   makeStyles,
   useTheme,
@@ -8,9 +8,9 @@ import {
   Tabs,
   Container,
   Typography,
-  GridList,
-  GridListTile,
   Box,
+  Grid,
+  Paper,
 } from "@material-ui/core";
 
 import Theme from "./Theme";
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     marginBottom: theme.spacing(2),
-    height: "400px",
+
     width: "100%",
     padding: 20,
     display: "flex",
@@ -37,32 +37,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     color: Theme.palette.background.darkBlue,
   },
-  gridList: {
-    marginBottom: theme.spacing(2),
-  },
-  gridListIcon: {
-    width: 54,
-    height: 54,
-    [theme.breakpoints.down("xs")]: {
-      width: 24,
-      height: 24,
-    },
-  },
+
   text: {
     fontFamily: "lato",
     fontSize: 18,
   },
   imagebox: {
-    height: 52,
-    width: 52,
+    width: 50,
+    height: 50,
+    flexDirection: "row",
   },
   image: {
-    height: 48,
-    width: 48,
-    [theme.breakpoints.down("xs")]: {
-      width: 24,
-      height: 24,
-    },
+    width: "100%",
+    height: "100%",
   },
 }));
 
@@ -99,7 +86,7 @@ function showtab(index) {
   };
 }
 
-export default function SearchBrandBy(props) {
+export default function SearchNewCar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -134,67 +121,82 @@ export default function SearchBrandBy(props) {
         <Tab label="Fuel" {...showtab(2)} />
       </Tabs>
       <Box
-        border={3}
+        border={1}
         borderRadius={16}
         style={{
           borderColor: "#004346",
-          backgroundColor: "#b8ffef",
-          width: "75%",
+
+          width: "50%",
         }}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <GridList
-            className={classes.gridList}
-            cellHeight={48}
-            cols={8}
-            spacing={4}
-          >
-            {iconDataBrand.map((tile) => (
-              <GridListTile key={tile.img} cols={1}>
-                <img
-                  className={classes.image}
-                  src={tile.img}
-                  alt={tile.title}
-                />
-              </GridListTile>
-            ))}
-          </GridList>
+          <Grid container className={classes.grid} spacing={2}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                {iconDataBrand.map((tile) => (
+                  <Grid key={tile.img} item>
+                    <Paper className={classes.gridpaper}>
+                      <div className={classes.imagebox}>
+                        <NavLink className={classes.link} to="/">
+                          <img
+                            className={classes.image}
+                            src={tile.img}
+                            alt={tile.title}
+                          />
+                        </NavLink>
+                      </div>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <GridList
-            className={classes.gridList}
-            cellHeight={48}
-            cols={8}
-            spacing={4}
-          >
-            {iconDataBudgetCar.map((tile) => (
-              <GridListTile key={tile.img} cols={1}>
-                <img
-                  className={classes.gridListIcon}
-                  src={tile.img}
-                  alt={tile.title}
-                />
-              </GridListTile>
-            ))}
-          </GridList>
+          <Grid container className={classes.grid} spacing={2}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                {iconDataBudgetCar.map((tile) => (
+                  <Grid key={tile.img} item>
+                    <Paper className={classes.gridpaper}>
+                      <div className={classes.imagebox}>
+                        <NavLink className={classes.link} to="/">
+                          <img
+                            className={classes.image}
+                            src={tile.img}
+                            alt={tile.title}
+                          />
+                        </NavLink>
+                      </div>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <GridList
-            className={classes.gridList}
-            cellHeight={48}
-            cols={8}
-            spacing={4}
-          >
-            {iconDataBrand.map((tile) => (
-              <GridListTile key={tile.img} cols={1}>
-                <img
-                  className={classes.gridListIcon}
-                  src={tile.img}
-                  alt={tile.title}
-                />
-              </GridListTile>
-            ))}
-          </GridList>
+          <Grid container className={classes.grid} spacing={2}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                {iconDataBrand.map((tile) => (
+                  <Grid key={tile.img} item>
+                    <Paper className={classes.gridpaper}>
+                      <div className={classes.imagebox}>
+                        <NavLink className={classes.link} to="/">
+                          <img
+                            className={classes.image}
+                            src={tile.img}
+                            alt={tile.title}
+                          />
+                        </NavLink>
+                      </div>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
         </TabPanel>
       </Box>
     </Container>

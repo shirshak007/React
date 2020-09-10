@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewCar() {
+export default function UsedCar() {
   const classes = useStyles();
   return (
     <Container className={classes.container} maxWidth="lg">
