@@ -4,6 +4,7 @@ import SearchCar from "./SearchCar";
 import SearchNewCarBy from "./SearchNewCarBy";
 import FeaturedCars from "./FeaturedCars";
 import Slideshow from "./Slideshow";
+import SellCar from "./SellCar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,7 @@ export default function Home(props) {
       <SearchNewCarBy />
       <FeaturedCars />
       <Slideshow />
+      <SellCar />
     </div>
   );
 }
