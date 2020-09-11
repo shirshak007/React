@@ -1,12 +1,19 @@
 import React from "react";
-import { makeStyles, Typography, Box, Container } from "@material-ui/core";
+import {
+  makeStyles,
+  Typography,
+  Box,
+  Container,
+  fade,
+  useTheme,
+} from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-
-import Image from "../asset/images/background.jpg";
+import Theme from "./Theme";
+import Image from "../asset/svg/undraw_people_search_wctu1.jpg";
 import cars from "../asset/carData";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
     cover=	Resize the background image to cover the entire container, even 
     if it has to stretch the image or cut a little bit off one of the edges*/
     backgroundPosition: "center",
+
     width: "100%",
   },
   typography: {
     margin: theme.spacing(1),
-    color: "black",
-    text: "white",
+    color: Theme.palette.background.darkBlue,
   },
   radio: {
     padding: theme.spacing(1),
@@ -42,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     margin: theme.spacing(1),
-    color: "black",
+    color: Theme.palette.background.darkBlue,
   },
   navlink: {
     color: "white",
@@ -52,8 +59,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchCar(props) {
+export default function SearchCar() {
   const classes = useStyles();
+  const theme = useTheme();
   const [selectedValue, setSelectedValue] = React.useState("newcar");
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -68,11 +76,9 @@ export default function SearchCar(props) {
       </div>
       <Box display="flex" justifyContent="center">
         <FormControlLabel
-          className={classes.text}
           value="start"
           control={
             <Radio
-              className={classes.text}
               checked={selectedValue === "newcar"}
               onChange={handleChange}
               value="newcar"
@@ -84,11 +90,9 @@ export default function SearchCar(props) {
           labelPlacement="start"
         />
         <FormControlLabel
-          className={classes.text}
           value="start"
           control={
             <Radio
-              className={classes.text}
               checked={selectedValue === "usedcar"}
               onChange={handleChange}
               value="usedcar"
@@ -103,12 +107,14 @@ export default function SearchCar(props) {
       <div className={classes.search}>
         <Autocomplete
           id="car"
-          style={{ width: "100%", backgroundColor: "white" }}
+          style={{
+            width: "100%",
+            background: fade(theme.palette.common.white, 0.5),
+          }}
           options={cars}
           getOptionLabel={(option) => option.title}
           renderInput={(params) => (
             <TextField
-              to="/"
               {...params}
               label="Search Cars ... "
               variant="outlined"
