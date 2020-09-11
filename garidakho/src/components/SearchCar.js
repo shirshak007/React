@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     cover=	Resize the background image to cover the entire container, even 
     if it has to stretch the image or cut a little bit off one of the edges*/
     backgroundPosition: "center",
-
     width: "100%",
   },
   typography: {
@@ -45,14 +44,30 @@ const useStyles = makeStyles((theme) => ({
     align: "center",
   },
   search: {
-    padding: theme.spacing(3),
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchbox: {
+    marginTop: theme.spacing(2),
+    width: "75%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  searchbelow: {
+    marginTop: theme.spacing(2),
+    width: "75%",
   },
   text: {
     margin: theme.spacing(1),
     color: Theme.palette.background.darkBlue,
   },
   navlink: {
-    color: "white",
+    color: Theme.palette.background.darkBlue,
     textDecoration: "inherit",
     padding: theme.spacing(0, 1),
     fontFamily: "lato",
@@ -104,32 +119,37 @@ export default function SearchCar() {
           labelPlacement="start"
         />
       </Box>
+
       <div className={classes.search}>
-        <Autocomplete
-          id="car"
-          style={{
-            width: "100%",
-            background: fade(theme.palette.common.white, 0.5),
-          }}
-          options={cars}
-          getOptionLabel={(option) => option.title}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search Cars ... "
-              variant="outlined"
-              color="secondary"
-            />
-          )}
-        />
-        <p className={classes.navlink} style={{ textAlign: "left" }}>
-          eg: Hyundai
-          <span style={{ float: "right" }}>
-            <NavLink className={classes.navlink} to="/newcar">
-              Not sure? Visit here.
-            </NavLink>
-          </span>
-        </p>
+        <div className={classes.searchbox}>
+          <Autocomplete
+            id="car"
+            style={{
+              width: "100%",
+              background: fade(theme.palette.common.white, 0.5),
+            }}
+            options={cars}
+            getOptionLabel={(option) => option.title}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search Cars ... "
+                variant="outlined"
+                color="secondary"
+              />
+            )}
+          />
+        </div>
+        <div className={classes.searchbelow}>
+          <p className={classes.navlink} style={{ textAlign: "left" }}>
+            eg: Hyundai
+            <span style={{ float: "right" }}>
+              <NavLink className={classes.navlink} to="/newcar">
+                Not sure? Visit here.
+              </NavLink>
+            </span>
+          </p>
+        </div>
       </div>
     </Container>
   );
