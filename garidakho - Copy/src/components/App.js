@@ -5,7 +5,6 @@ import Footer from "./Footer";
 import Home from "./Home";
 import NewCar from "./NewCar";
 import UsedCar from "./UsedCar";
-import SellCar from "./SellCar";
 import News from "./News";
 class App extends React.Component {
   render() {
@@ -17,7 +16,6 @@ class App extends React.Component {
             <Route exact path="/newcar" component={NewCar} />
             <Route exact path="/usedcar" component={UsedCar} />
             <Route exact path="/news" component={News} />
-            <Route exact path="/sellcar" component={SellCar} />
             <Route exact path="/" component={Home} />
           </Switch>
         </div>

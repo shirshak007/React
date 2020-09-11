@@ -17,42 +17,42 @@ export default [
   },
   {
     img: image2,
-    title: "Audi",
+    title: "audi",
   },
   {
     img: image3,
-    title: "Bmw",
+    title: "bmw",
   },
   {
     img: image4,
-    title: "Fodge",
+    title: "dodge",
   },
   {
     img: image5,
-    title: "Ferrari",
+    title: "ferrari",
   },
   {
     img: image6,
-    title: "Fiat",
+    title: "fiat",
   },
   {
     img: image7,
-    title: "Ford",
+    title: "ford",
   },
   {
     img: image8,
-    title: "Honda",
+    title: "honda",
   },
   {
     img: image9,
-    title: "Hyundai",
+    title: "hyundai",
   },
   {
     img: image10,
-    title: "Jaguar",
+    title: "jaguar",
   },
   {
     img: image11,
-    title: "Lamborghini",
+    title: "lamborghini",
   },
 ];

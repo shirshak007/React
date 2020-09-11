@@ -114,7 +114,7 @@ export default function SearchNewCar(props) {
         style={{
           background: "linear-gradient(45deg, #01579b 20%, #33691e 90%)",
           borderRadius: 14,
-          boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
+          boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
           color: "white",
         }}
       >

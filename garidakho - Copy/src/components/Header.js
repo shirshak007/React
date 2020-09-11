@@ -150,11 +150,6 @@ export default function HeaderTab() {
           <Typography className={classes.textspace}>_</Typography>
           <Typography className={classes.text}>CAR</Typography>
         </NavLink>
-        <NavLink className={classes.navlink} to="/sellcar">
-          <Typography className={classes.text}>SELL</Typography>
-          <Typography className={classes.textspace}>_</Typography>
-          <Typography className={classes.text}>CAR</Typography>
-        </NavLink>
         <NavLink className={classes.navlink} to="/news">
           <Typography className={classes.text}>NEWS</Typography>
         </NavLink>

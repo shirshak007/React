@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete, {
+  createFilterOptions,
+} from "@material-ui/lab/Autocomplete";
 
 import Image from "../asset/images/background.jpg";
 import cars from "../asset/carData";
@@ -31,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
   typography: {
     margin: theme.spacing(1),
     color: "black",
-    text: "white",
   },
   radio: {
     padding: theme.spacing(1),
@@ -48,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     textDecoration: "inherit",
     padding: theme.spacing(0, 1),
-    fontFamily: "lato",
   },
 }));
 
@@ -58,7 +58,8 @@ export default function SearchCar(props) {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
-
+  const [value, setValue] = React.useState(null);
+  const filter = createFilterOptions();
   return (
     <Container className={classes.container} maxWidth="lg">
       <div className={classes.paper}>
@@ -102,15 +103,57 @@ export default function SearchCar(props) {
       </Box>
       <div className={classes.search}>
         <Autocomplete
-          id="car"
           style={{ width: "100%", backgroundColor: "white" }}
+          value={value}
+          onChange={(event, newValue) => {
+            if (typeof newValue === "string") {
+              setValue({
+                title: newValue,
+              });
+            } else if (newValue && newValue.inputValue) {
+              // Create a new value from the user input
+              setValue({
+                title: newValue.inputValue,
+              });
+            } else {
+              setValue(newValue);
+            }
+          }}
+          filterOptions={(options, params) => {
+            const filtered = filter(options, params);
+
+            // Suggest the creation of a new value
+            if (params.inputValue !== "") {
+              filtered.push({
+                inputValue: params.inputValue,
+                title: `Add "${params.inputValue}"`,
+              });
+            }
+
+            return filtered;
+          }}
+          selectOnFocus
+          clearOnBlur
+          handleHomeEndKeys
+          id="search"
           options={cars}
-          getOptionLabel={(option) => option.title}
+          getOptionLabel={(option) => {
+            if (typeof option === "string") {
+              return option;
+            }
+
+            if (option.inputValue) {
+              return option.inputValue;
+            }
+
+            return option.title;
+          }}
+          renderOption={(option) => option.title}
+          freeSolo
           renderInput={(params) => (
             <TextField
-              to="/"
               {...params}
-              label="Search Cars ... "
+              label="Search Cars Here..."
               variant="outlined"
               color="secondary"
             />
