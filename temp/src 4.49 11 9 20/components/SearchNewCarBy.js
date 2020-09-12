@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     marginBottom: theme.spacing(2),
+
     width: "100%",
     padding: 20,
     display: "flex",
@@ -34,44 +35,30 @@ const useStyles = makeStyles((theme) => ({
   },
   typography: {
     margin: theme.spacing(1),
-    color: Theme.palette.background.darkGreen,
+    color: Theme.palette.background.darkBlue,
   },
 
   text: {
     fontFamily: "lato",
     fontSize: 18,
   },
-  grid: {
-    flexGrow: 1,
-  },
-  gridpaper: {
-    /*Change the height and width here to reflect changes */
-    height: 240,
-    width: 265,
-  },
-  control: {
-    padding: theme.spacing(2),
-  },
   imagebox: {
-    width: "100%",
-    height: 200 /*change the height always 30-40 pixex less than gridpaper. It contains the title of image*/,
-    flexDirection: "row",
-    alignItems: "center",
+    width: 50,
+    height: 50,
+    [theme.breakpoints.down("xs")]: {
+      width: 25,
+      height: 25,
+    },
   },
   image: {
     width: "100%",
     height: "100%",
-  },
-  link: {
-    color: "black",
-    textDecoration: "inherit",
   },
 }));
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   const classes = useStyles();
-
   return (
     <div
       role="tabpanel"
@@ -94,13 +81,15 @@ TabPanel.propTypes = {
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
 };
+
 function showtab(index) {
   return {
     id: `searchcarby-${index}`,
     "aria-controls": `searchcarby-${index}`,
   };
 }
-export default function FeaturedCars(props) {
+
+export default function SearchNewCar(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -113,76 +102,36 @@ export default function FeaturedCars(props) {
     <Container className={classes.container}>
       <div className={classes.paper}>
         <Typography className={classes.typography} variant="h6">
-          FEATURED CARS
+          FIND NEW CAR BY
         </Typography>
       </div>
 
       <Tabs
         value={value}
         onChange={handleChange}
-        centered
+        variant="standard"
+        aria-label="tabs"
         style={{
-          background: "#99dfff",
+          background: "linear-gradient(45deg, #01579b 20%, #33691e 90%)",
           borderRadius: 14,
-          boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-          color: "black",
-          indicatorColor: "primary",
+          boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
+          color: "white",
         }}
       >
-        <Tab label="Popular" {...showtab(0)} />
-        <Tab label="Just Launched" {...showtab(1)} />
-        <Tab label="Upcoming Cars" {...showtab(2)} />
+        <Tab label="Brand" {...showtab(0)} />
+
+        <Tab label="Budget" {...showtab(1)} />
+        <Tab label="Fuel" {...showtab(2)} />
       </Tabs>
-      <Container>
+      <Box
+        border={1}
+        borderRadius={16}
+        style={{
+          borderColor: "#004346",
+          width: "55%",
+        }}
+      >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Grid container className={classes.grid} spacing={2}>
-            <Grid item xs={12}>
-              <Grid container justify="center" spacing={2}>
-                {iconDataBrand.map((tile) => (
-                  <Grid key={tile.img} item>
-                    <Paper className={classes.gridpaper}>
-                      <div className={classes.imagebox}>
-                        <NavLink className={classes.link} to="/">
-                          {" "}
-                          {/*Change the to="/" according to need*/}
-                          <img
-                            className={classes.image}
-                            src={tile.img}
-                            alt={tile.title}
-                          />
-                          <Typography align="center">{tile.title}</Typography>
-                        </NavLink>
-                      </div>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Grid item xs={12}>
-            <Grid container justify="center" spacing={2}>
-              {iconDataBudgetCar.map((tile) => (
-                <Grid key={tile.img} item>
-                  <Paper className={classes.gridpaper}>
-                    <div className={classes.imagebox}>
-                      <NavLink className={classes.link} to="/">
-                        <img
-                          className={classes.image}
-                          src={tile.img}
-                          alt={tile.title}
-                        />
-                        <Typography align="center">{tile.title}</Typography>
-                      </NavLink>
-                    </div>
-                  </Paper>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
           <Grid item xs={12}>
             <Grid container justify="center" spacing={2}>
               {iconDataBrand.map((tile) => (
@@ -195,7 +144,6 @@ export default function FeaturedCars(props) {
                           src={tile.img}
                           alt={tile.title}
                         />
-                        <Typography align="center">{tile.title}</Typography>
                       </NavLink>
                     </div>
                   </Paper>
@@ -204,7 +152,53 @@ export default function FeaturedCars(props) {
             </Grid>
           </Grid>
         </TabPanel>
-      </Container>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <Grid container className={classes.grid} spacing={2}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                {iconDataBudgetCar.map((tile) => (
+                  <Grid key={tile.img} item>
+                    <Paper className={classes.gridpaper}>
+                      <div className={classes.imagebox}>
+                        <NavLink className={classes.link} to="/">
+                          <img
+                            className={classes.image}
+                            src={tile.img}
+                            alt={tile.title}
+                          />
+                        </NavLink>
+                      </div>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
+          <Grid container className={classes.grid} spacing={2}>
+            <Grid item xs={12}>
+              <Grid container justify="center" spacing={2}>
+                {iconDataBrand.map((tile) => (
+                  <Grid key={tile.img} item>
+                    <Paper className={classes.gridpaper}>
+                      <div className={classes.imagebox}>
+                        <NavLink className={classes.link} to="/">
+                          <img
+                            className={classes.image}
+                            src={tile.img}
+                            alt={tile.title}
+                          />
+                        </NavLink>
+                      </div>
+                    </Paper>
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
+        </TabPanel>
+      </Box>
     </Container>
   );
 }

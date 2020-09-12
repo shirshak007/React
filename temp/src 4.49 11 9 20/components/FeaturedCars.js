@@ -100,7 +100,7 @@ function showtab(index) {
     "aria-controls": `searchcarby-${index}`,
   };
 }
-export default function FeaturedCars(props) {
+export default function SearchBrandBy(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);

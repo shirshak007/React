@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-
-import SellingCard from "./SellingCard";
+import SellCarThreeSteps from "./SellCarThreeSteps";
+import WhyChooseUs from "./WhyChooseUs";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -13,7 +13,8 @@ export default function Home(props) {
 
   return (
     <div className={classes.root}>
-      <SellingCard />
+      <SellCarThreeSteps />
+      <WhyChooseUs />
     </div>
   );
 }
