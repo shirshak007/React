@@ -1,13 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import SearchCar from "./SearchCar";
-import SearchNewCarBy from "./SearchNewCarBy";
-import FeaturedCars from "./FeaturedCars";
-import Slideshow from "./Slideshow";
+
+import SellCarSingleVisit from "./SellCarSingleVisit";
+import WhyChooseUs from "./WhyChooseUs";
+import SeeHowThisWork from "./SeeHowThisWork";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width: "100%",
   },
 }));
 
@@ -16,10 +17,9 @@ export default function Home(props) {
 
   return (
     <div className={classes.root}>
-      <SearchCar />
-      <SearchNewCarBy />
-      <FeaturedCars />
-      <Slideshow />
+      <SellCarSingleVisit />
+      <WhyChooseUs />
+      <SeeHowThisWork />
     </div>
   );
 }

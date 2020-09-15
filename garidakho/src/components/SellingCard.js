@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sidebarbutton: {
     borderBottom: `2px solid ${theme.palette.divider}`,
-    padding: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
     width: 220,
     height: 40,
     display: "flex",
@@ -45,9 +45,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "lato",
     [theme.breakpoints.down("xs")]: {
       padding: theme.spacing(0.5),
+      paddingBottom: theme.spacing(1),
       width: 120,
       height: 30,
-      fontSize: 9,
+      fontSize: 10,
     },
   },
   content: {

@@ -1,10 +1,9 @@
 import React from "react";
-import { AppBar, Toolbar, InputBase, Typography } from "@material-ui/core";
-
+import { NavLink } from "react-router-dom";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
-import SearchIcon from "@material-ui/icons/Search";
-import { NavLink } from "react-router-dom";
+
 import Theme from "./Theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -138,33 +137,6 @@ export default function HeaderTab() {
               <Typography className={classes.titletext}>DAKHO</Typography>
             </div>
           </NavLink>
-        </div>
-
-        <NavLink className={classes.navlink} to="/newcar">
-          <Typography className={classes.text}>NEW</Typography>
-          <Typography className={classes.textspace}>_</Typography>
-          <Typography className={classes.text}>CAR</Typography>
-        </NavLink>
-        <NavLink className={classes.navlink} to="/usedcar">
-          <Typography className={classes.text}>USED</Typography>
-          <Typography className={classes.textspace}>_</Typography>
-          <Typography className={classes.text}>CAR</Typography>
-        </NavLink>
-        <NavLink className={classes.navlink} to="/news">
-          <Typography className={classes.text}>NEWS</Typography>
-        </NavLink>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Search…"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ "aria-label": "search" }}
-          />
         </div>
       </Toolbar>
     </AppBar>
