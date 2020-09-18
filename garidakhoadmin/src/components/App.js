@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
 import Home from "./Home";
 import AdminLogin from "./AdminLogin";
 import AdminHome from "./AdminHome";

@@ -140,7 +140,7 @@ export default function HeaderTab() {
         </div>
 
         <NavLink className={classes.navlink} to="/adminlogin">
-          ADMIN
+          ADMIN (ID: admin PWD: admin)
         </NavLink>
       </Toolbar>
     </AppBar>
