@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+
 import {
   Drawer,
   CssBaseline,
@@ -27,15 +28,15 @@ import PagesIcon from "@material-ui/icons/Pages";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import TableChartIcon from "@material-ui/icons/TableChart";
 import { NavLink } from "react-router-dom";
-
 import Collapse from "@material-ui/core/Collapse";
-
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Theme from "./Theme";
 import Dashboard from "./Dashboard";
+import AdminFunctionality from "./AdminFunctionality";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
+const smalldrawerWidth = 60;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +55,10 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    [theme.breakpoints.down("xs")]: {
+      width: `calc(100% - ${smalldrawerWidth}px)`,
+      marginLeft: smalldrawerWidth,
+    },
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -64,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    [theme.breakpoints.down("xs")]: {
+      width: smalldrawerWidth,
+    },
   },
   drawerPaper: {
     width: drawerWidth,
@@ -105,6 +113,7 @@ export default function PersistentDrawerLeft() {
   const [open1, setOpen1] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [open3, setOpen3] = React.useState(false);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -121,6 +130,7 @@ export default function PersistentDrawerLeft() {
   const handleClick3 = () => {
     setOpen3(!open3);
   };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -151,6 +161,7 @@ export default function PersistentDrawerLeft() {
           </NavLink>
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -303,6 +314,7 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <Dashboard />
+        <AdminFunctionality />
       </main>
     </div>
   );
