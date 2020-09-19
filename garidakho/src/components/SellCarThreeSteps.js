@@ -17,7 +17,7 @@ import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import StepConnector from "@material-ui/core/StepConnector";
 import Theme from "./Theme";
 
-import image1 from "../asset/svg/undraw_teaching_f1cm.svg";
+import image1 from "../asset/svg/undraw_business_deal_cpi9.svg";
 import image2 from "../asset/svg/undraw_electric_car_b7hl.svg";
 import image3 from "../asset/svg/undraw_business_deal_cpi9.svg";
 
