@@ -1,46 +1,42 @@
 export default [
   {
     id: "1",
-    name: "Ram",
+    name: "BMW",
   },
   {
     id: "2",
-    name: "Sam",
+    name: "FORD",
   },
   {
     id: "3",
-    name: "Jodu",
+    name: "MARUTI",
   },
   {
     id: "4",
-    name: "Madhu",
+    name: "HONDA",
   },
   {
     id: "5",
-    name: "Ramen",
+    name: "HYUNDAI",
   },
   {
     id: "6",
-    name: "Amal",
+    name: "ALFA",
   },
   {
     id: "7",
-    name: "Biman",
+    name: "TESLA",
   },
   {
     id: "8",
-    name: "Avik",
+    name: "FERRARI",
   },
   {
     id: "9",
-    name: "Rohit",
+    name: "TATA",
   },
   {
     id: "10",
-    name: "Rakesh",
-  },
-  {
-    id: "11",
-    name: "Bishu",
+    name: "NISSAN",
   },
 ];

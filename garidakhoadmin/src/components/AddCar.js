@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { makeStyles, Grid, Paper, TextField, Button } from "@material-ui/core";
-import UserData from "../asset/UserData";
-//const editJsonFile = require("edit-json-file");
-//let file = editJsonFile(`../asset/UserData1.js`);
+import CarData from "../asset/CarData";
+//let file = editJsonFile(`../asset/CarData1.js`);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: "100%",
   },
-  userform: {
+  carform: {
     width: "100%",
 
     flexDirection: "row",
@@ -20,17 +19,18 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
 }));
-export default function AddUser(props) {
+
+export default function AddCar(props) {
   const classes = useStyles();
-  const [username, setusername] = useState("");
+  const [carname, setcarname] = useState("");
 
   return (
     <div className={classes.root}>
-      ADD NEW USER
+      ADD NEW CAR
       <Grid container className={classes.grid} spacing={2}>
         <Grid item xs={12}>
           <Paper className={classes.gridpaper}>
-            <div className={classes.userform}>
+            <div className={classes.carform}>
               <form className={classes.form} noValidate>
                 <TextField
                   variant="outlined"
@@ -38,10 +38,11 @@ export default function AddUser(props) {
                   margin="normal"
                   required
                   fullWidth
-                  id="userid"
-                  label="User ID(Auto Generated)"
-                  name="userid"
-                  defaultValue={UserData.length + 1} //this should be generated automatically if we use database
+                  id="carid"
+                  label="Car ID(Auto Generated)"
+                  name="carid"
+                  defaultValue={CarData.length + 1}
+                  //this should be generated automatically if we use database
                   disabled
                 />
                 <TextField
@@ -50,11 +51,11 @@ export default function AddUser(props) {
                   margin="normal"
                   required
                   fullWidth
-                  name="username"
-                  label="User Name"
-                  id="username"
-                  value={username}
-                  onChange={(e) => setusername(e.target.value)}
+                  name="carname"
+                  label="Car Name"
+                  id="carname"
+                  value={carname}
+                  onChange={(e) => setcarname(e.target.value)}
                 />
 
                 <Button
@@ -64,7 +65,7 @@ export default function AddUser(props) {
                   color="secondary"
                   className={classes.submit}
                 >
-                  ADD USER
+                  ADD CAR
                 </Button>
               </form>
             </div>

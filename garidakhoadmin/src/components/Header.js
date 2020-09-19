@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
   titletext: {
     fontSize: 25,
-    [theme.breakpoints.up("xs")]: {
-      fontSize: 20,
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 18,
     },
   },
   space: {
@@ -140,7 +140,7 @@ export default function HeaderTab() {
         </div>
 
         <NavLink className={classes.navlink} to="/adminlogin">
-          ADMIN (ID: admin PWD: admin)
+          ADMIN
         </NavLink>
       </Toolbar>
     </AppBar>

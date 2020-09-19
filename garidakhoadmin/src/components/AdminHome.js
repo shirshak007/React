@@ -15,6 +15,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -76,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     backgroundColor: Theme.palette.background.green,
+    [theme.breakpoints.down("xs")]: {
+      width: smalldrawerWidth,
+    },
   },
   drawerHeader: {
     display: "flex",
@@ -93,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: -smalldrawerWidth,
+    },
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -102,7 +109,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
   },
   nested: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
   },
 }));
 
@@ -182,129 +189,141 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          <ListItem button key="dashboard">
-            <ListItemIcon>
-              <EqualizerIcon />
-            </ListItemIcon>{" "}
-            <ListItemText primary="Dashboard" />
-          </ListItem>
+          <Tooltip title="Dashboard">
+            <ListItem button key="dashboard">
+              <ListItemIcon>
+                <EqualizerIcon />
+              </ListItemIcon>{" "}
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </Tooltip>
         </List>
         <Divider />
         <List>
-          <ListItem button onClick={handleClick1}>
-            <ListItemIcon>
-              <SettingsInputCompositeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Components" />
-            {open1 ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
+          <Tooltip title="Components">
+            <ListItem button onClick={handleClick1}>
+              <ListItemIcon>
+                <SettingsInputCompositeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Components" />
+              {open1 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+          </Tooltip>
           <Collapse in={open1} timeout="auto" unmountOnExit>
             <List
               component="div"
               disablePadding
               style={{ backgroundColor: Theme.palette.background.darkGreen }}
             >
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary="Buttons" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Cards" />
-              </ListItem>
+              <Tooltip title="Buttons">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <MailIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Buttons" />
+                </ListItem>
+              </Tooltip>
+              <Tooltip title="Cards">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Cards" />
+                </ListItem>
+              </Tooltip>
             </List>
           </Collapse>
-          <ListItem button onClick={handleClick2}>
-            <ListItemIcon>
-              <BuildIcon />
-            </ListItemIcon>
-            <ListItemText primary="Utilities" />
-            {open2 ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
+          <Tooltip title="Utilities">
+            <ListItem button onClick={handleClick2}>
+              <ListItemIcon>
+                <BuildIcon />
+              </ListItemIcon>
+              <ListItemText primary="Utilities" />
+              {open2 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+          </Tooltip>
           <Collapse in={open2} timeout="auto" unmountOnExit>
             <List
               component="div"
               disablePadding
               style={{ backgroundColor: Theme.palette.background.darkGreen }}
             >
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary="Color" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Border" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Animator" />
-              </ListItem>
+              <Tooltip title="Color">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <MailIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Color" />
+                </ListItem>
+              </Tooltip>
+              <Tooltip title="Cards">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Cards" />
+                </ListItem>
+              </Tooltip>
             </List>
           </Collapse>
         </List>
         <Divider />
         <List>
-          <ListItem button onClick={handleClick3}>
-            <ListItemIcon>
-              <PagesIcon />
-            </ListItemIcon>
-            <ListItemText primary="Pages" />
-            {open3 ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
+          <Tooltip title="Pages">
+            <ListItem button onClick={handleClick3}>
+              <ListItemIcon>
+                <PagesIcon />
+              </ListItemIcon>
+              <ListItemText primary="Pages" />
+              {open3 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+          </Tooltip>
           <Collapse in={open3} timeout="auto" unmountOnExit>
             <List
               component="div"
               disablePadding
               style={{ backgroundColor: Theme.palette.background.darkGreen }}
             >
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary="Color" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Border" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Animator" />
-              </ListItem>
+              <Tooltip title="Color">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <BuildIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Color" />
+                </ListItem>
+              </Tooltip>
+              <Tooltip title="Animator">
+                <ListItem button className={classes.nested}>
+                  <ListItemIcon>
+                    <PagesIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Animator" />
+                </ListItem>
+              </Tooltip>
             </List>
           </Collapse>
         </List>
 
         <List>
-          <ListItem button key="charts">
-            <ListItemIcon>
-              <InsertChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Charts" />
-          </ListItem>
+          <Tooltip title="Charts">
+            <ListItem button key="charts">
+              <ListItemIcon>
+                <InsertChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Charts" />
+            </ListItem>
+          </Tooltip>
         </List>
 
         <List>
-          <ListItem button key="tables">
-            <ListItemIcon>
-              <TableChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Tables" />
-          </ListItem>
+          <Tooltip title="Tables">
+            <ListItem button key="tables">
+              <ListItemIcon>
+                <TableChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Tables" />
+            </ListItem>
+          </Tooltip>
         </List>
         <Divider />
       </Drawer>

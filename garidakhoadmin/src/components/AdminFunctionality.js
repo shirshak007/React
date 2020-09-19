@@ -9,7 +9,6 @@ import {
   Container,
   Typography,
   Box,
-  Grid,
   Paper,
 } from "@material-ui/core";
 
@@ -17,9 +16,18 @@ import Theme from "./Theme";
 import AddUser from "./AddUser";
 import UpdateUser from "./UpdateUser";
 import DeleteUser from "./DeleteUser";
+import AddCar from "./AddCar";
+import UpdateCar from "./UpdateCar";
+import DeleteCar from "./DeleteCar";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(2),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  gridpaper: {
+    marginTop: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -101,7 +109,7 @@ function showtab2(index) {
   };
 }
 
-export default function SearchNewCar(props) {
+export default function AdminFunctionality(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -125,7 +133,7 @@ export default function SearchNewCar(props) {
           ADMIN FUNCTIONALITY
         </Typography>
       </div>
-      <Typography>Manage</Typography>
+      <Typography style={{ color: "green" }}>MANAGE</Typography>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -151,91 +159,66 @@ export default function SearchNewCar(props) {
         }}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Grid item xs={12}>
-            <Grid container spacing={2}>
-              <Grid item>
-                <Paper className={classes.gridpaper}>
-                  <Tabs
-                    value={value1}
-                    onChange={handleChange1}
-                    variant="scrollable"
-                    orientation="vertical"
-                    scrollButtons="on"
-                    aria-label="tabs"
-                    style={{
-                      background: "linear-gradient( to right, white, #c4f2ff)",
-                      borderRadius: 8,
-                      boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
-                      color: "black",
-                      height: "160px",
-                    }}
-                  >
-                    <Tab label="Add" {...showtab1(0)} />
-                    <Tab label="Update" {...showtab1(1)} />
-                    <Tab label="Delete" {...showtab1(2)} />
-                  </Tabs>
-                </Paper>
-              </Grid>
-              <Grid item>
-                <Paper className={classes.gridpaper}>
-                  <TabPanel value={value1} index={0} dir={theme.direction}>
-                    <AddUser />
-                  </TabPanel>
-                  <TabPanel value={value1} index={1} dir={theme.direction}>
-                    <UpdateUser />
-                  </TabPanel>
-                  <TabPanel value={value1} index={2} dir={theme.direction}>
-                    <DeleteUser />
-                  </TabPanel>
-                </Paper>
-              </Grid>
-            </Grid>
-          </Grid>
+          <Tabs
+            value={value1}
+            onChange={handleChange1}
+            variant="scrollable"
+            scrollButtons="on"
+            aria-label="tabs"
+            style={{
+              background: "linear-gradient( to left, white, #c4f2ff)",
+              borderRadius: 8,
+              boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
+              color: "black",
+            }}
+          >
+            <Tab label="Add" {...showtab1(0)} />
+            <Tab label="Update" {...showtab1(1)} />
+            <Tab label="Delete" {...showtab1(2)} />
+          </Tabs>
+
+          <Paper className={classes.gridpaper}>
+            <TabPanel value={value1} index={0} dir={theme.direction}>
+              <AddUser />
+            </TabPanel>
+            <TabPanel value={value1} index={1} dir={theme.direction}>
+              <UpdateUser />
+            </TabPanel>
+            <TabPanel value={value1} index={2} dir={theme.direction}>
+              <DeleteUser />
+            </TabPanel>
+          </Paper>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <Grid container className={classes.grid} spacing={2}>
-            <Grid item xs={12}>
-              <Grid container spacing={2}>
-                <Grid item>
-                  <Paper className={classes.gridpaper}>
-                    <Tabs
-                      value={value2}
-                      onChange={handleChange2}
-                      variant="scrollable"
-                      orientation="vertical"
-                      scrollButtons="on"
-                      aria-label="tabs"
-                      style={{
-                        background:
-                          "linear-gradient( to right, white, #c4f2ff)",
-                        borderRadius: 8,
-                        boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
-                        color: "black",
-                        height: "160px",
-                      }}
-                    >
-                      <Tab label="Add" {...showtab2(0)} />
-                      <Tab label="Update" {...showtab2(1)} />
-                      <Tab label="Delete" {...showtab2(2)} />
-                    </Tabs>
-                  </Paper>
-                </Grid>
-                <Grid item>
-                  <Paper className={classes.gridpaper}>
-                    <TabPanel value={value2} index={0} dir={theme.direction}>
-                      Add Car
-                    </TabPanel>
-                    <TabPanel value={value2} index={1} dir={theme.direction}>
-                      Update Car
-                    </TabPanel>
-                    <TabPanel value={value2} index={2} dir={theme.direction}>
-                      Delete Car
-                    </TabPanel>
-                  </Paper>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
+          <Tabs
+            value={value2}
+            onChange={handleChange2}
+            variant="scrollable"
+            scrollButtons="on"
+            aria-label="tabs"
+            style={{
+              background: "linear-gradient( to left, white, #c4f2ff)",
+              borderRadius: 8,
+              boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
+              color: "black",
+            }}
+          >
+            <Tab label="Add" {...showtab2(0)} />
+            <Tab label="Update" {...showtab2(1)} />
+            <Tab label="Delete" {...showtab2(2)} />
+          </Tabs>
+
+          <Paper className={classes.gridpaper}>
+            <TabPanel value={value2} index={0} dir={theme.direction}>
+              <AddCar />
+            </TabPanel>
+            <TabPanel value={value2} index={1} dir={theme.direction}>
+              <UpdateCar />
+            </TabPanel>
+            <TabPanel value={value2} index={2} dir={theme.direction}>
+              <DeleteCar />
+            </TabPanel>
+          </Paper>
         </TabPanel>
       </Box>
     </Container>

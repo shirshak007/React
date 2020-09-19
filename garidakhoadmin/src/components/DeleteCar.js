@@ -9,13 +9,13 @@ import {
   useTheme,
   fade,
 } from "@material-ui/core";
-import UserData from "../asset/UserData";
+import CarData from "../asset/CarData";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 //const editJsonFile = require("edit-json-file");
 
-//let file = editJsonFile(`../asset/UserData1.js`);
-//let file = editJsonFile(`../asset/UserData.js`);
+//let file = editJsonFile(`../asset/carData1.js`);
+//let file = editJsonFile(`../asset/carData.js`);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,24 +38,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DeleteUser(props) {
+export default function DeleteCar(props) {
   const classes = useStyles();
   const theme = useTheme();
   return (
     <div className={classes.root}>
-      DELETE USER
+      DELETE CAR
       <Autocomplete
-        id="Search User"
+        id="Search car"
         style={{
           width: "100%",
           background: fade(theme.palette.common.white, 0.5),
         }}
-        options={UserData}
+        options={CarData}
         getOptionLabel={(option) => option.id + ". " + option.name}
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search User"
+            label="Search car"
             variant="outlined"
             color="secondary"
             style={{ marginTop: "10px", marginBottom: "10px" }}
@@ -71,21 +71,21 @@ export default function DeleteUser(props) {
       >
         <Grid item xs={12}>
           <Grid container justify="center" spacing={2}>
-            {UserData.map((user) => (
-              <Grid key={user.id} item xs={6} sm={4}>
+            {CarData.map((car) => (
+              <Grid key={car.id} item xs={6} sm={4}>
                 <Paper className={classes.gridpaper}>
                   <div className={classes.imagebox}>
                     <Grid container justify="center" spacing={2}>
                       <Grid item xs={12}>
-                        <Typography>ID: {user.id}</Typography>
-                        <Typography>Name: {user.name}</Typography>
+                        <Typography>ID: {car.id}</Typography>
+                        <Typography>Name: {car.name}</Typography>
                       </Grid>
                       <Grid item xs={12}>
                         <Button
                           style={{
                             backgroundColor: "#ff6969",
                           }}
-                          id={user.id}
+                          id={car.id}
                         >
                           Delete
                         </Button>
