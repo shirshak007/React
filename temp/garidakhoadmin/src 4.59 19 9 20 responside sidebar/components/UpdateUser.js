@@ -1,15 +1,15 @@
 import React from "react";
 import { makeStyles, Grid, Paper, TextField, Button } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import UserData from "../asset/UserData";
 //const editJsonFile = require("edit-json-file");
-//let file = editJsonFile(`../asset/CarData1.js`);
+//let file = editJsonFile(`../asset/UserData1.js`);
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: "100%",
   },
-  carform: {
+  userform: {
     width: "100%",
 
     flexDirection: "row",
@@ -21,12 +21,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UpdateCar(props) {
+export default function UpdateUser(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      UPDATE CAR DETAILS
+      UPDATE USER DETAILS
       <Grid
         style={{ marginTop: "10px" }}
         container
@@ -35,10 +35,10 @@ export default function UpdateCar(props) {
       >
         <Grid item xs={12}>
           <Grid container justify="center" spacing={2}>
-            {CarData.map((car) => (
-              <Grid key={car.id} item xs={12} sm={4}>
+            {UserData.map((user) => (
+              <Grid key={user.id} item xs={12} sm={4}>
                 <Paper className={classes.gridpaper}>
-                  <div className={classes.carform}>
+                  <div className={classes.userform}>
                     <form className={classes.form} noValidate>
                       <TextField
                         variant="outlined"
@@ -46,10 +46,10 @@ export default function UpdateCar(props) {
                         margin="normal"
                         required
                         fullWidth
-                        id="carid"
-                        label="car ID (DON'T UPDATE)"
-                        name="carid"
-                        value={car.id}
+                        id="userid"
+                        label="User ID (DON'T UPDATE)"
+                        name="userid"
+                        value={user.id}
                         disabled
                       />
                       <TextField
@@ -58,10 +58,10 @@ export default function UpdateCar(props) {
                         margin="normal"
                         required
                         fullWidth
-                        name="carname"
-                        label="car Name"
-                        id="carname"
-                        defaultValue={car.name}
+                        name="username"
+                        label="User Name"
+                        id="username"
+                        defaultValue={user.name}
                       />
 
                       <Button
@@ -71,7 +71,7 @@ export default function UpdateCar(props) {
                         color="secondary"
                         className={classes.submit}
                       >
-                        UPDATE CAR
+                        UPDATE USER
                       </Button>
                     </form>
                   </div>

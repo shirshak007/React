@@ -72,7 +72,7 @@ export default function SignIn() {
     event.preventDefault();
 
     if (users[0].userid === userid && users[0].password === password) {
-      //alert("Login Success");
+      alert("Login Success");
       history.push("/adminhome");
     } else {
       alert("id & password not matched");

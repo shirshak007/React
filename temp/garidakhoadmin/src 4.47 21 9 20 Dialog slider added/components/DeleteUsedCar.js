@@ -9,7 +9,7 @@ import {
   useTheme,
   fade,
 } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import { OldCar as CarData } from "../asset/CarData";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 //const editJsonFile = require("edit-json-file");
@@ -43,7 +43,7 @@ export default function DeleteCar(props) {
   const theme = useTheme();
   return (
     <div className={classes.root}>
-      DELETE CAR
+      DELETE USED CAR
       <Autocomplete
         id="Search car"
         style={{

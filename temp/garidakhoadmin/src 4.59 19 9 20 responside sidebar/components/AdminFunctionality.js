@@ -19,10 +19,6 @@ import DeleteUser from "./DeleteUser";
 import AddCar from "./AddCar";
 import UpdateCar from "./UpdateCar";
 import DeleteCar from "./DeleteCar";
-import AddUsedCar from "./AddUsedCar";
-import UpdateUsedCar from "./UpdateUsedCar";
-import DeleteUsedCar from "./DeleteUsedCar";
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(2),
@@ -112,12 +108,6 @@ function showtab2(index) {
     "aria-controls": `adminfunc-${index}`,
   };
 }
-function showtab3(index) {
-  return {
-    id: `adminfunc-${index}`,
-    "aria-controls": `adminfunc-${index}`,
-  };
-}
 
 export default function AdminFunctionality(props) {
   const classes = useStyles();
@@ -125,7 +115,6 @@ export default function AdminFunctionality(props) {
   const [value, setValue] = React.useState(0);
   const [value1, setValue1] = React.useState(0);
   const [value2, setValue2] = React.useState(0);
-  const [value3, setValue3] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -135,9 +124,6 @@ export default function AdminFunctionality(props) {
   };
   const handleChange2 = (event, newValue2) => {
     setValue2(newValue2);
-  };
-  const handleChange3 = (event, newValue3) => {
-    setValue3(newValue3);
   };
 
   return (
@@ -162,8 +148,7 @@ export default function AdminFunctionality(props) {
         }}
       >
         <Tab label="USER" {...showtab(0)} />
-        <Tab label="NEW CAR" {...showtab(1)} />
-        <Tab label="USED CAR" {...showtab(2)} />
+        <Tab label="CAR" {...showtab(1)} />
       </Tabs>
       <Box
         border={1}
@@ -232,37 +217,6 @@ export default function AdminFunctionality(props) {
             </TabPanel>
             <TabPanel value={value2} index={2} dir={theme.direction}>
               <DeleteCar />
-            </TabPanel>
-          </Paper>
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          <Tabs
-            value={value3}
-            onChange={handleChange3}
-            variant="scrollable"
-            scrollButtons="on"
-            aria-label="tabs"
-            style={{
-              background: "linear-gradient( to left, white, #c4f2ff)",
-              borderRadius: 8,
-              boxShadow: "0 3px 5px 2px rgba(0, 105, 135, .3)",
-              color: "black",
-            }}
-          >
-            <Tab label="Add" {...showtab3(0)} />
-            <Tab label="Update" {...showtab3(1)} />
-            <Tab label="Delete" {...showtab3(2)} />
-          </Tabs>
-
-          <Paper className={classes.gridpaper}>
-            <TabPanel value={value3} index={0} dir={theme.direction}>
-              <AddUsedCar />
-            </TabPanel>
-            <TabPanel value={value3} index={1} dir={theme.direction}>
-              <UpdateUsedCar />
-            </TabPanel>
-            <TabPanel value={value3} index={2} dir={theme.direction}>
-              <DeleteUsedCar />
             </TabPanel>
           </Paper>
         </TabPanel>

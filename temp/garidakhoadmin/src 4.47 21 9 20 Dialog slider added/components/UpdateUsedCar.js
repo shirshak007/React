@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Grid, Paper, TextField, Button } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import { OldCar as CarData } from "../asset/CarData";
 //const editJsonFile = require("edit-json-file");
 //let file = editJsonFile(`../asset/CarData1.js`);
 
@@ -26,7 +26,7 @@ export default function UpdateCar(props) {
 
   return (
     <div className={classes.root}>
-      UPDATE CAR DETAILS
+      UPDATE USED CAR DETAILS
       <Grid
         style={{ marginTop: "10px" }}
         container

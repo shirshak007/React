@@ -94,7 +94,7 @@ export default function Deshboard() {
             >
               <Grid container>
                 <Grid item xs>
-                  TASKS (PERCENTAGE)
+                  TASKS
                   <br />
                   <Box display="flex" alignItems="center">
                     <Box width="100%" mr={1}>

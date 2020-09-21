@@ -9,7 +9,7 @@ import {
   useTheme,
   fade,
 } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import CarData from "../asset/CarData";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 //const editJsonFile = require("edit-json-file");

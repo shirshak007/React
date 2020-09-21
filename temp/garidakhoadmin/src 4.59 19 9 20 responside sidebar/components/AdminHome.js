@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { NavLink } from "react-router-dom";
+
 import {
   Drawer,
   CssBaseline,
@@ -14,12 +14,9 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Collapse,
-  Tooltip,
-  Dialog,
-  Slide,
 } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
+import Tooltip from "@material-ui/core/Tooltip";
+
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -31,20 +28,16 @@ import MailIcon from "@material-ui/icons/Mail";
 import PagesIcon from "@material-ui/icons/Pages";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import TableChartIcon from "@material-ui/icons/TableChart";
+import { NavLink } from "react-router-dom";
+import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Theme from "./Theme";
 import Dashboard from "./Dashboard";
 import AdminFunctionality from "./AdminFunctionality";
-import LineChart from "./LineChart";
-import PieChart from "./PieChart";
 
 const drawerWidth = 220;
 const smalldrawerWidth = 60;
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -128,32 +121,6 @@ export default function PersistentDrawerLeft() {
   const [open2, setOpen2] = React.useState(false);
   const [open3, setOpen3] = React.useState(false);
 
-  const [open4, setOpen4] = React.useState(false);
-
-  const [open5, setOpen5] = React.useState(false);
-
-  const [open6, setOpen6] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen4(true);
-  };
-  const handleClickOpen1 = () => {
-    setOpen5(true);
-  };
-  const handleClickOpen2 = () => {
-    setOpen6(true);
-  };
-  const handleClose = () => {
-    setOpen4(false);
-  };
-  const handleClose1 = () => {
-    setOpen5(false);
-  };
-
-  const handleClose2 = () => {
-    setOpen6(false);
-  };
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -161,7 +128,6 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   const handleClick1 = () => {
     setOpen1(!open1);
   };
@@ -234,38 +200,12 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          <Tooltip title="Functionality">
-            <ListItem button key="Functionality" onClick={handleClickOpen}>
-              <ListItemIcon>
-                <BuildIcon />
-              </ListItemIcon>{" "}
-              <ListItemText primary="Admin Functionality" />
-            </ListItem>
-          </Tooltip>
-        </List>
-        <Dialog
-          fullScreen
-          open={open4}
-          onClose={handleClose}
-          TransitionComponent={Transition}
-        >
-          <AppBar style={{ background: "transparent", boxShadow: "none" }}>
-            <Toolbar>
-              <IconButton edge="start" onClick={handleClose} aria-label="close">
-                <CloseIcon />
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          <AdminFunctionality />
-        </Dialog>
-        <Divider />
-        <List>
-          <Tooltip title="Stats">
+          <Tooltip title="Components">
             <ListItem button onClick={handleClick1}>
               <ListItemIcon>
                 <SettingsInputCompositeIcon />
               </ListItemIcon>
-              <ListItemText primary="Stats" />
+              <ListItemText primary="Components" />
               {open1 ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
           </Tooltip>
@@ -275,72 +215,22 @@ export default function PersistentDrawerLeft() {
               disablePadding
               style={{ backgroundColor: Theme.palette.background.darkGreen }}
             >
-              <Tooltip title="Earning">
-                <ListItem
-                  button
-                  className={classes.nested}
-                  onClick={handleClickOpen1}
-                >
+              <Tooltip title="Buttons">
+                <ListItem button className={classes.nested}>
                   <ListItemIcon>
                     <MailIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Earning" />
+                  <ListItemText primary="Buttons" />
                 </ListItem>
               </Tooltip>
-              <Dialog
-                fullScreen
-                open={open5}
-                onClose={handleClose1}
-                TransitionComponent={Transition}
-              >
-                <AppBar
-                  style={{ background: "transparent", boxShadow: "none" }}
-                >
-                  <Toolbar>
-                    <IconButton
-                      edge="start"
-                      onClick={handleClose1}
-                      aria-label="close"
-                    >
-                      <CloseIcon />
-                    </IconButton>
-                  </Toolbar>
-                </AppBar>
-                <LineChart />
-              </Dialog>
-              <Tooltip title="Revenue">
-                <ListItem
-                  button
-                  className={classes.nested}
-                  onClick={handleClickOpen2}
-                >
+              <Tooltip title="Cards">
+                <ListItem button className={classes.nested}>
                   <ListItemIcon>
                     <InboxIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Revenue" />
+                  <ListItemText primary="Cards" />
                 </ListItem>
               </Tooltip>
-              <Dialog
-                fullScreen
-                open={open6}
-                onClose={handleClose2}
-                TransitionComponent={Transition}
-              >
-                <AppBar
-                  style={{ background: "transparent", boxShadow: "none" }}
-                >
-                  <Toolbar>
-                    <IconButton
-                      edge="start"
-                      onClick={handleClose2}
-                      aria-label="close"
-                    >
-                      <CloseIcon />
-                    </IconButton>
-                  </Toolbar>
-                </AppBar>
-                <PieChart />
-              </Dialog>
             </List>
           </Collapse>
           <Tooltip title="Utilities">
@@ -443,6 +333,7 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <Dashboard />
+        <AdminFunctionality />
       </main>
     </div>
   );

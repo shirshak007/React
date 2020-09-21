@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Grid, Paper, TextField, Button } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import CarData from "../asset/CarData";
 //const editJsonFile = require("edit-json-file");
 //let file = editJsonFile(`../asset/CarData1.js`);
 

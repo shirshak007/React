@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles, Grid, Paper, TextField, Button } from "@material-ui/core";
-import { NewCar as CarData } from "../asset/CarData";
+import { OldCar as CarData } from "../asset/CarData";
 //let file = editJsonFile(`../asset/CarData1.js`);
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,7 @@ export default function AddCar(props) {
 
   return (
     <div className={classes.root}>
-      ADD NEW CAR
+      ADD USED CAR
       <Grid container className={classes.grid} spacing={2}>
         <Grid item xs={12}>
           <Paper className={classes.gridpaper}>
