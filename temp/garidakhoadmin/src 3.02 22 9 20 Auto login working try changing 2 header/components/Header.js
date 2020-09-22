@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -147,7 +147,7 @@ export default function HeaderTab() {
         </div>
 
         <NavLink className={classes.navlink} to={link}>
-          LOGIN
+          ADMIN
         </NavLink>
       </Toolbar>
     </AppBar>

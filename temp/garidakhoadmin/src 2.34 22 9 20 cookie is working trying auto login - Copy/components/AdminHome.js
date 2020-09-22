@@ -8,6 +8,7 @@ import {
   AppBar,
   Toolbar,
   List,
+  Typography,
   Divider,
   IconButton,
   ListItem,
@@ -23,14 +24,13 @@ import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 import BuildIcon from "@material-ui/icons/Build";
-import TrendingUpIcon from "@material-ui/icons/TrendingUp";
-import InsertChartIcon from "@material-ui/icons/InsertChart";
-import BarChartRoundedIcon from "@material-ui/icons/BarChartRounded";
-import PieChartIcon from "@material-ui/icons/PieChart";
+import SettingsInputCompositeIcon from "@material-ui/icons/SettingsInputComposite";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import PagesIcon from "@material-ui/icons/Pages";
-import DashboardRoundedIcon from "@material-ui/icons/DashboardRounded";
+import InsertChartIcon from "@material-ui/icons/InsertChart";
 import TableChartIcon from "@material-ui/icons/TableChart";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -56,9 +56,6 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    [theme.breakpoints.down("xs")]: {
-      marginLeft: -smalldrawerWidth,
-    },
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -73,10 +70,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   menuButton: {
-    marginRight: theme.spacing(1),
-    [theme.breakpoints.down("xs")]: {
-      marginRight: "1px",
-    },
+    marginRight: theme.spacing(2),
   },
   hide: {
     display: "none",
@@ -175,11 +169,9 @@ export default function PersistentDrawerLeft() {
   const handleClick3 = () => {
     setOpen3(!open3);
   };
-  const [cookies, setCookie] = useCookies(["name"]);
 
-  const logout = () => {
-    setCookie("name", "", { path: "/" });
-  };
+  const [cookies] = useCookies(["name"]); //This the cookie.. the name and details will be taken from database later on
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -199,18 +191,9 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <NavLink
-            style={{
-              flexGrow: 1,
-
-              color: "white",
-              textDecoration: "inherit",
-              fontSize: "20px",
-            }}
-            to="/"
-          >
-            GARI DAKHO
-          </NavLink>
+          <Typography variant="h6" noWrap style={{ flexGrow: 1 }}>
+            GARI DAKHO ADMIN
+          </Typography>
           Welcome {cookies.name}!{" "}
           {/*This cookie is set after successful login*/}
           <NavLink
@@ -220,7 +203,6 @@ export default function PersistentDrawerLeft() {
               textDecoration: "inherit",
             }}
             to="/adminlogin"
-            onClick={logout}
           >
             LOGOUT
           </NavLink>
@@ -250,7 +232,7 @@ export default function PersistentDrawerLeft() {
           <Tooltip title="Dashboard">
             <ListItem button key="dashboard">
               <ListItemIcon>
-                <DashboardRoundedIcon />
+                <EqualizerIcon />
               </ListItemIcon>{" "}
               <ListItemText primary="Dashboard" />
             </ListItem>
@@ -287,7 +269,7 @@ export default function PersistentDrawerLeft() {
           <Tooltip title="Stats">
             <ListItem button onClick={handleClick1}>
               <ListItemIcon>
-                <BarChartRoundedIcon />
+                <SettingsInputCompositeIcon />
               </ListItemIcon>
               <ListItemText primary="Stats" />
               {open1 ? <ExpandLess /> : <ExpandMore />}
@@ -306,7 +288,7 @@ export default function PersistentDrawerLeft() {
                   onClick={handleClickOpen1}
                 >
                   <ListItemIcon>
-                    <TrendingUpIcon />
+                    <MailIcon />
                   </ListItemIcon>
                   <ListItemText primary="Earning" />
                 </ListItem>
@@ -339,7 +321,7 @@ export default function PersistentDrawerLeft() {
                   onClick={handleClickOpen2}
                 >
                   <ListItemIcon>
-                    <PieChartIcon />
+                    <InboxIcon />
                   </ListItemIcon>
                   <ListItemText primary="Revenue" />
                 </ListItem>
@@ -393,7 +375,7 @@ export default function PersistentDrawerLeft() {
               <Tooltip title="Cards">
                 <ListItem button className={classes.nested}>
                   <ListItemIcon>
-                    <PieChartIcon />
+                    <InboxIcon />
                   </ListItemIcon>
                   <ListItemText primary="Cards" />
                 </ListItem>

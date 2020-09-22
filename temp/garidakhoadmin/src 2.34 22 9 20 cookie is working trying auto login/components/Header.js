@@ -4,7 +4,6 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import DirectionsCarIcon from "@material-ui/icons/DirectionsCar";
 
-import { useCookies } from "react-cookie";
 import Theme from "./Theme";
 
 const useStyles = makeStyles((theme) => ({
@@ -120,14 +119,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function HeaderTab() {
-  let link = "";
   const classes = useStyles();
-  const [cookies] = useCookies(["name"]);
-  if (cookies.name) {
-    link = "/adminhome";
-  } else {
-    link = "/adminlogin";
-  }
+
   return (
     <AppBar className={classes.root}>
       <Toolbar className={classes.toolbar}>
@@ -146,8 +139,8 @@ export default function HeaderTab() {
           </NavLink>
         </div>
 
-        <NavLink className={classes.navlink} to={link}>
-          LOGIN
+        <NavLink className={classes.navlink} to="/adminlogin">
+          ADMIN
         </NavLink>
       </Toolbar>
     </AppBar>
