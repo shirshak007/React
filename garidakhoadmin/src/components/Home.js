@@ -12,5 +12,5 @@ const useStyles = makeStyles((theme) => ({
 export default function Home(props) {
   const classes = useStyles();
 
-  return <div className={classes.root}>THIS IS THE BODY</div>;
+  return <div className={classes.root}>BODY</div>;
 }

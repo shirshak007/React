@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
+//import PieChart1 from "./PieChart1";
 import Projects from "./Projects";
 import Illustration from "./Illustration";
 
@@ -55,7 +56,7 @@ export default function Deshboard() {
           DASHBOARD
         </Typography>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Paper
               className={classes.paper}
               style={{ borderLeft: "6px solid green" }}
@@ -71,7 +72,7 @@ export default function Deshboard() {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Paper
               className={classes.paper}
               style={{ borderLeft: "6px solid cyan" }}
@@ -87,7 +88,7 @@ export default function Deshboard() {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Paper
               className={classes.paper}
               style={{ borderLeft: "6px solid violet" }}
@@ -113,7 +114,7 @@ export default function Deshboard() {
               </Grid>
             </Paper>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Paper
               className={classes.paper}
               style={{ borderLeft: "6px solid lightblue" }}
@@ -140,6 +141,9 @@ export default function Deshboard() {
           </Grid>
           <Grid item xs={12}>
             <PieChart />
+            {/* ////////////////////////////////////////////// Testing Phase
+            <PieChart1 />
+            //////////////////////////////////////////////////// */}
           </Grid>
           <Grid item xs={12} sm={6}>
             <Projects />

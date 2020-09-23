@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   titletext: {
-    fontSize: 25,
+    fontSize: 20,
     [theme.breakpoints.down("xs")]: {
-      fontSize: 18,
+      fontSize: 14,
     },
   },
   space: {

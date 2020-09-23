@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import MUICookieConsent from "material-ui-cookie-consent";
 import { useHistory } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -134,6 +134,11 @@ export default function SignIn() {
           </Button>
         </form>
       </div>
+      <MUICookieConsent
+        cookieName="mySiteCookieConsent"
+        componentType="Snackbar" // default value is Snackbar
+        message="This site uses cookies."
+      />
     </div>
   );
 }
