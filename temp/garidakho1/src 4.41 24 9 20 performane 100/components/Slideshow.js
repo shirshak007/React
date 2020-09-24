@@ -1,7 +1,15 @@
 import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { makeStyles, Typography, Paper, Container } from "@material-ui/core";
+import {
+  makeStyles,
+  Typography,
+  Paper,
+  Container,
+  IconButton,
+  Tooltip,
+  MenuItem,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 import Theme from "./Theme";
