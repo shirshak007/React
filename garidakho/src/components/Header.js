@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     backgroundColor: Theme.palette.background.darkBlue,
-    position: "static",
+
     padding: theme.spacing(0, 1),
   },
   title: {

@@ -20,6 +20,7 @@ import LatestCars from "./LatestCars";
 import FindOffersOnTopBrands from "./FindOffersOnTopBrands";
 import SearchCarsByBodyType from "./SearchCarsByBodyType";
 import FAQ from "./FAQ";
+import LatestCarsSlide from "./LatestCarsSlide";
 import Image from "../asset/svg/city-driver-concept-illustration_114360-1209.jpg";
 
 /*CUSTOM STYLE*/
@@ -389,9 +390,11 @@ when new filter needed add before this/*
           </TabPanel>
         </div>
         <div style={{ width: "100%" }}>
-          <LatestCars />
+          <LatestCarsSlide />
+          {/* <LatestCars /> //this shows a long list so the previous component renders a use friendly slide*/}
           <FindOffersOnTopBrands />
           <SearchCarsByBodyType />
+
           <FAQ />
         </div>
       </div>
