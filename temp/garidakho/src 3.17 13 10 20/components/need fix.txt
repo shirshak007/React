@@ -1,0 +1,9 @@
+...fix userlogin
+...get user id from any location which will be used in blog
+...update userid in comment default used "1"
+...need to include comment update and delete
+...if login is fixed then add new like api in single blog post
+...in old car page..while adding new oldcar data remember these:
+fuel_type : case sensitive (use all small)
+transmission:use small
+if no result shown .. check the spelling in the sellingcardusedcar page and also check datatypes
